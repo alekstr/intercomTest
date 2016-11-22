@@ -27,11 +27,9 @@ describe('LineReader test', function(){
         return lr.reduce(function(){
             return true;
         })
-        .then(function(rez){
-            console.log('Rez');
-        })
         .catch(function(e){
-           console.log(e); 
+           e.name.should.equal('JSONParseError');
+           e.line.should.equal(4);
         })
     });
 });
